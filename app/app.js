@@ -1,14 +1,14 @@
-const readline = require('readline-sync');
+const readline = require ('readline-sync');
 
 // function for user to enter name
 function userName() {
   const user = readline.question('Enter your name: ');
   if (user === '') {
     console.log('Please enter a valid name');
-    return false;
+    return null;
   } else {
     console.log(`Welcome ${user}, What are you shopping for today?`);
-    return true;
+    return user;
   }
 }
 
@@ -71,13 +71,13 @@ function checkout() {
 }
 
 
-let userNameEntered = false;
+let userNameEntered = null;
 
 // Prompt user for name
 userNameEntered = userName();
 
 // If the user entered the name, proceed with the menu
-if (userNameEntered) {
+if (userNameEntered !== null) {
   while (true) {
     console.log('\n1. Display Products');
     console.log('2. Add to Cart');
